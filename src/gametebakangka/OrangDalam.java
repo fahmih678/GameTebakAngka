@@ -21,6 +21,8 @@ public class OrangDalam {
         // menyimpan angka random dalam variabel rand_int    
         int rand_int = rand.nextInt(101);
         int tebakan;
+        int score = 100;
+        int jml = 0;
 
         
         do{
@@ -32,11 +34,26 @@ public class OrangDalam {
             
             //  Pengkondisian Output          
             if (tebakan > rand_int){
-                System.out.println("--Bilangan tebakan Anda terlalu besar---");           
+                System.out.println("--Bilangan tebakan Anda terlalu besar---");
+                jml+=1;
+                score-=2;
             } else if (tebakan < rand_int) {
                 System.out.println("--Bilangan tebakan Anda terlalu kecil---");
+                jml+=1;
+                score-=2;
             } else {
                 System.out.println("!!!Selamat tebakan Anda benar!!!");
+                if(jml<=5){
+                    System.out.println("\n\nScore Anda: " + score);
+                    System.out.println("Bonus: 50 poin");
+                    System.out.println("Total Score Anda: "+ (score+50) );
+                }else{
+                    System.out.println("\n\nScore Anda : " + score);
+                }
+            }
+            if (score == 0){
+                System.out.println("\nMaaf score kamu habis");
+                break;
             }
         }while(tebakan != rand_int);
     }
